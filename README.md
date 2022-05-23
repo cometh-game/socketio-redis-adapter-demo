@@ -40,7 +40,8 @@ the chatroom.
 ## inspect redis datas
 
 ```
- redis-cli
+docker exec -ti redis bash
+redis-cli
 127.0.0.1:6379> PSUBSCRIBE *
 2) "*"
 3) (integer) 1
