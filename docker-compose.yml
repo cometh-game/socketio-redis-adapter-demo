@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+
+  client:
+    build: client
+
+  s1:
+    container_name: s1
+    build: server
+    ports:
+      - "8001:3000"
+    environment:
+      - NAME=alice
+
+  s2:
+    container_name: s2
+    build: server
+    ports:
+      - "8002:3000"
+    environment:
+      - NAME=bob
+
+  s3:
+    container_name: s3
+    build: server
+    ports:
+      - "8003:3000"
+    environment:
+      - NAME=carole
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    volumes:
+     - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8000:80"
+    depends_on:
+      - s1
+      - s2
+      - s3
+
+  redis:
+    container_name: redis
+    image: redis:latest
