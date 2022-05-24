@@ -9,7 +9,7 @@ A simple chat demo for socket.io
 $ docker-compose up -d
 ```
 
-And then point your browser to `http://localhost:3000`.
+And then point your browser to `http://localhost:8000`.
 
 This will start four Socket.IO nodes, behind a nginx proxy which will loadbalance the requests (using the IP of the client, see [ip_hash](http://nginx.org/en/docs/http/ngx_http_upstream_module.html#ip_hash)).
 
